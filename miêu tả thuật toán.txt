@@ -1,0 +1,24 @@
+Thuật toán chúng em sử dụng để tô màu đồ thị xoay quanh việc sắp xếp màu theo bậc của đỉnh thông qua phương pháp Heuristic.
+
+Các bước thực hiện:
+Bước 1: Khởi tạo 1 struct mang tên ‘Vertex’ để biểu diễn các đỉnh của đồ thị. Struct có 3 member: ‘id’ để lưu trữ định danh của đỉnh, ‘degree’ để biểu thị bậc của đỉnh, và ‘color’ dùng để lưu màu của đỉnh.
+Bước 2: Hàm ‘compareDegree’ là một hàm so sánh được sử dụng để xắp sếp các đỉnh trên bậc của đỉnh theo thứ tự giảm dần. Hàm nhận vào 2 đối tượng ‘Vertex’ và trả về ‘true’ nếu bậc của đỉnh thứ nhất lớn hơn bậc của đỉnh thứ 2.
+Bước 3:  Bắt đầu hàm main.
+Bước 4: Trong hàm main bắt đầu đọc file “dothi.txt” như dữ liệu đầu vào và xuất ra file “dothitomau.txt” là dữ liệu đầu ra chứa màu của đồ thị đã cho.
+Bước 5: Bắt đầu nhập vào các cạnh và đỉnh từ file “dothi.txt” với biến ‘n’ để lưu số đỉnh và biến ‘m’ để lưu số cạnh.
+Bước 6: Khởi tạo danh sách kề của đồ thị mang tên ‘graph’ và vector ‘vertices’ là vector của  struct ‘Vertex’ biểu diễn đỉnh của đồ thị.
+Bước 7: Bắt đầu thực hiện lưu đồ thị dưới dạng danh sách kề với (gốc của đồ thị là đỉnh 0).
+Bước 8: Vòng lặp tiếp theo gán  dấu các đỉnh trong vector ‘vertices’ vào ‘id’.
+Bước 9: Gọi hàm ‘sort’ để sắp xếp các đỉnh trong vector ‘vertices’ thông qua bậc của đỉnh bằng cách sử dụng (phương pháp Heuristic)*.
+Bước 10: Khởi tạo và gán giá trị cho biến ‘max_color’ bằng 0. Đây sẽ là biến để xác định màu cần để tô cho đồ thị.
+Bước 11: Vòng lặp tiếp theo duyệt qua từng đỉnh đã được sắp xếp trong vector ‘vertices’.  Với mỗi đỉnh, sử dụng vector ‘used_color’ để theo dõi các màu đã được sử dụng trong 1 lân cận của đỉnh.  Trong đó, chúng ta khởi tạo ban đầu vector ‘used_color’ với giá trị “false”.
+Bước 12: Sau đó, vòng lặp tiếp tục duyệt qua các lân cận của đỉnh hiện tại và đánh dấu tương ứng trong ‘used_color’ thành “true” nếu như lân cận của đỉnh đó đã được tô màu.
+Bước 13: Tiếp theo, một vòng lặp nữa được sử dụng để tìm màu nhỏ nhất chưa được dùng và khả dụng cho đỉnh hiện tại. Vòng lặp bắt đầu từ 1 và kiểm tra từng màu xem liệu màu đó đã được sử dụng trong lân cận của đỉnh hiện tại chưa, nếu phát hiện màu chưa được dùng, vòng lặp được thoát.
+Bước 14: Ta gán màu vừa tìm được vào member ‘color’ của đỉnh hiện tại, và tăng ‘max_color’ nếu cần thiết.
+Bước 15: Sau khi tô màu xong đồ thị, dòng đầu tiên trong file “dothitomau.txt” là giá trị của biến ‘max_color’.
+Bước 16: Vector ‘result’ được tạo ra để lưu kết quả tô màu của từng đỉnh. Vector ‘result’ được khởi tạo tuân theo thứ tự đã được sắp xếp của các đỉnh. (có thể sai ở đây nữa)
+Bước 17: Một vòng lặp được sử dụng để in ra kết quả tô màu của đồ thị vào file đầu ra.
+BƯớc 18: Input và output streams được đóng.
+Bước 19: Kết thúc chương trình.
+
+T có note lại vài chỗ có thể sai ý bước 7, bước 9, và bước 16 nhé.
